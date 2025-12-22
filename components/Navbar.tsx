@@ -78,6 +78,7 @@ const Navbar = () => {
               Versatile growers
             </span>
           </a>
+          
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
