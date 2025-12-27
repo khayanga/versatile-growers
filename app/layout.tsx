@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Versetaile growers",
-  description:"A laniding page for farmers to showcase their farms and products.",
+  title: "Versatile growers",
+  description:"A landing page for farmers to showcase their farms and products.",
 };
 
 export default function RootLayout({
