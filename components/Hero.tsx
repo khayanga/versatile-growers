@@ -60,7 +60,7 @@ const Hero = () => {
 
           {/* Headline */}
           <h1 className="animate-fade-up animation-delay-100 text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground leading-tight text-balance">
-            Fresh, Sustainable Farm Produce
+            Fresh Produce, Modern Farming, Trusted Consultancy
             <span className="block text-orange-400">Direct from Our Farm</span>
           </h1>
 

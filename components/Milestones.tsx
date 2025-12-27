@@ -68,7 +68,7 @@ const MilestonesSection = () => {
   };
   return (
     <section
-      id="milestones"
+      id="services"
       className="py-16 md:py-24 bg-white relative overflow-hidden"
     >
       <SectionDecorator />
