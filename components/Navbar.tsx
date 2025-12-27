@@ -96,8 +96,8 @@ const Navbar = () => {
                       ? "bg-primary text-primary-foreground"
                       : "bg-primary-foreground/20 text-primary-foreground"
                     : isScrolled
-                    ? "text-muted-foreground hover:text-foreground hover:bg-muted"
-                    : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10"
+                    ? "text-muted-foreground hover:text-foreground hover:bg-orange-500/10"
+                    : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-orange-500/10"
                 }`}
               >
                 {link.name}
@@ -139,8 +139,8 @@ const Navbar = () => {
                   activeSection === link.href.slice(1)
                     ? "bg-primary text-primary-foreground"
                     : isScrolled
-                    ? "text-muted-foreground hover:bg-muted hover:text-foreground"
-                    : "text-primary-foreground/90 hover:bg-primary-foreground/10"
+                    ? "text-muted-foreground hover:bg-orange-500/10 hover:text-foreground"
+                    : "text-primary-foreground/90 hover:bg-orange-500/10"
                 }`}
               >
                 {link.name}

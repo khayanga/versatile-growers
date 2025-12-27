@@ -76,127 +76,140 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-6 ">
-      <div className="mx-auto max-w-6xl">
-        <div className="space-y-12 animate-fade-in-up">
-          {/* Header */}
-          <div className="space-y-4 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold">Get in Touch</h2>
-            <div className="h-1 w-20 bg-primary rounded-full mx-auto" />
+  <section
+    id="contact"
+    className="relative py-24 px-6 bg-linear-to-b from-green-50 via-white to-orange-50"
+  >
+    <div className="mx-auto max-w-6xl">
+      <div className="space-y-14 animate-fade-in-up">
+        {/* Header */}
+        <div className="space-y-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Get in Touch
+          </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            Have a question or want to place an order? We’d love to hear from you.
+          </p>
+          <div className="h-1 w-24 bg-linear-to-r from-green-500 to-orange-500 rounded-full mx-auto" />
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Form Card */}
+          <div className="bg-card/90 backdrop-blur border border-border rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <label htmlFor="name" className="text-sm font-medium">
+                  Name
+                </label>
+                <Input
+                  id="name"
+                  placeholder="Your name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="focus-visible:ring-green-500"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-medium">
+                  Email
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="your.email@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="focus-visible:ring-green-500"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm font-medium">
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  placeholder="What produce are you interested in?"
+                  rows={6}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="focus-visible:ring-green-500 resize-none"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                size="lg"
+                disabled={loading}
+                className="w-full bg-linear-to-r from-green-600 to-orange-500 hover:opacity-90 transition-all"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="ml-2 h-4 w-4" />
+                  </>
+                )}
+              </Button>
+            </form>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Form */}
-            <div className="bg-card border border-border rounded-lg p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">
-                    Name
-                  </label>
-                  <Input
-                    id="name"
-                    placeholder="Your name"
-                    value={formData.name}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="your.email@example.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="What produce are your intrested in..."
-                    rows={6}
-                    value={formData.message}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full"
-                  size="lg"
-                  disabled={loading}
-                >
-                  {loading ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <Send className="ml-2 h-4 w-4" />
-                    </>
-                  )}
-                </Button>
-              </form>
+          {/* Contact Info */}
+          <div className="space-y-10">
+            <div className="space-y-4">
+              <h3 className="text-2xl font-semibold">Ready to order?</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Reach out directly via email or phone, or send us a message using
+                the form. We respond fast.
+              </p>
             </div>
 
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-semibold">Ready to order?</h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Contact us to place your order or to learn more about our
-                  fresh farm produce. We're here to help!
-                </p>
-              </div>
-
-              {/* Contact Links */}
-              <div className="space-y-4">
-                <h4 className="font-medium">Find me on</h4>
-                <div className="space-y-3">
+            {/* Contact Cards */}
+            <div className="space-y-4">
+              {[
+                {
+                  icon: Mail,
+                  text: "versatilegrowers1@gmail.com",
+                  href: "mailto:versatilegrowers1@gmail.com",
+                },
+                {
+                  icon: Phone,
+                  text: "0769768560",
+                  href: "tel:0769768560",
+                },
+                {
+                  icon: MapPin,
+                  text: "Kitengela, Kajiado County",
+                  href: "#",
+                },
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
                   <a
-                    href="mailto:versatilegrowers1@gmail.com"
-                    className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
+                    key={i}
+                    href={item.href}
+                    className="group flex items-center gap-4 p-5 rounded-xl border border-border bg-card/80 backdrop-blur hover:border-orange-500/50 hover:shadow-md transition-all duration-300"
                   >
-                    <Mail className="h-5 w-5 text-primary" />
-                    <span className="group-hover:text-primary transition-colors">
-                      versatilegrowers1@gmail.com
+                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-linear-to-br from-green-500 to-orange-500 text-white">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <span className="font-medium group-hover:text-orange-600 transition-colors">
+                      {item.text}
                     </span>
                   </a>
-
-                  <a
-                    href="tel:0769768560"
-                    className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
-                  >
-                    <Phone className="h-5 w-5 text-primary" />
-                    <span className="group-hover:text-primary transition-colors">
-                      0769768560
-                    </span>
-                  </a>
-
-                  <a
-                    href="#"
-                    className="flex items-center gap-3 p-4 rounded-lg border border-border hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group"
-                  >
-                    <MapPin className="h-5 w-5 text-primary" />
-                    <span className="group-hover:text-primary transition-colors">
-                      Kitengela, Kajiado County
-                    </span>
-                  </a>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
+
 }

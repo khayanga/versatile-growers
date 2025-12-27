@@ -15,25 +15,24 @@ const Toaster = ({ ...props }: ToasterProps) => {
 
   return (
     <Sonner
-      theme={theme as ToasterProps["theme"]}
-      className="toaster group"
-      icons={{
-        success: <CircleCheckIcon className="size-4" />,
-        info: <InfoIcon className="size-4" />,
-        warning: <TriangleAlertIcon className="size-4" />,
-        error: <OctagonXIcon className="size-4" />,
-        loading: <Loader2Icon className="size-4 animate-spin" />,
-      }}
-      style={
-        {
-          "--normal-bg": "var(--popover)",
-          "--normal-text": "var(--popover-foreground)",
-          "--normal-border": "var(--border)",
-          "--border-radius": "var(--radius)",
-        } as React.CSSProperties
-      }
-      {...props}
-    />
+  theme={theme as ToasterProps["theme"]}
+  className="toaster group"
+  icons={{
+    success: <CircleCheckIcon className="w-4 h-4" />,
+    info: <InfoIcon className="w-4 h-4" />,
+    warning: <TriangleAlertIcon className="w-4 h-4" />,
+    error: <OctagonXIcon className="w-4 h-4" />,
+    loading: <Loader2Icon className="w-4 h-4 animate-spin" />,
+  }}
+  style={{
+    "--normal-bg": theme === "dark" ? "#111827" : "#fff", 
+    "--normal-text": theme === "dark" ? "#f9fafb" : "#111827", 
+    "--normal-border": theme === "dark" ? "#374151" : "#d1d5db",
+    "--border-radius": "0.5rem",
+  } as React.CSSProperties}
+  {...props}
+/>
+
   )
 }
 

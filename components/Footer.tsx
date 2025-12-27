@@ -6,96 +6,93 @@ const PHONE_NUMBER = "+254769768560";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  // url="https://docs.google.com/forms/d/e/1FAIpQLSdXsJP_XXFs4CL8pqlFQD12F96a_YbIJMvqpwKDY8ta1L7j9w/viewform?usp=header"
+
   return (
-    <footer className="bg-linear-to-r from-green-500 to-green-800 text-primary-foreground py-12">
-      <div className="container  mx-auto ">
-        <div className="max-w-7xl mx-auto">
-          {/* Main Footer Content */}
-          <div className="flex flex-col items-center gap-4 md:flex-row justify-between  md:px-12 mb-8">
-            {/* Farm Info */}
-            <div className="text-center md:text-left">
-              <div>
-                <Image 
-                src="/logo.png"
-                alt="Versatile Growers Logo"
-                width={150}
-                height={150}
-                className="mx-auto md:mx-0 mb-4"
-                />
-              </div>
-              <p className="text-white text-sm mb-4">
-                Quality farm-fresh produce grown with care in Kajiado County, Kenya.
-              </p>
-              <p className="text-white text-sm">
-                <strong className="text-white">Owner:</strong> Nereah Joan
-              </p>
-            </div>
+    <footer className="relative bg-linear-to-br from-green-700 via-green-800 to-green-900 text-white">
+      {/* Top glow */}
+      <div className="absolute inset-x-0 -top-24 h-24 bg-linear-to-t from-green-700/40 to-transparent pointer-events-none" />
 
-            {/* Quick Links */}
-            <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
-              <nav className="space-y-2">
-                <a href="#about" className="block text-primary-foreground/70 hover:text-orange-400 text-sm transition-colors">
-                  About Us
-                </a>
-                <a href="#products" className="block text-primary-foreground/70 hover:text-orange-400 text-sm transition-colors">
-                  Products
-                </a>
-                <a href="#milestones" className="block text-primary-foreground/70 hover:text-orange-400 text-sm transition-colors">
-                  Milestones
-                </a>
-                <a href="#contact" className="block text-primary-foreground/70 hover:text-orange-400 text-sm transition-colors">
-                  Contact
-                </a>
-              </nav>
-            </div>
-
-            {/* Contact Info */}
-            <div className="text-center md:text-left">
-              <h4 className="font-semibold mb-4">Contact Us</h4>
-              <div className="space-y-3">
-                <a
-                  
-                  className="flex items-center gap-2 text-primary-foreground/70 hover:text-orange-400 text-sm transition-colors"
-                >
-                  <Phone className="w-4 h-4" />
-                  {PHONE_NUMBER}
-                </a>
-                <a
-                  href={`https://wa.me/${PHONE_NUMBER.replace("+", "")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-primary-foreground/70 hover:text-orange-400 text-sm transition-colors"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  WhatsApp
-                </a>
-                <p className="flex items-center gap-2 text-primary-foreground/70 text-sm">
-                  <MapPin className="w-4 h-4" />
-                  Kajiado County, Kenya
-                </p>
-              </div>
-            </div>
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        {/* Main Footer Content */}
+        <div className="grid gap-12 md:grid-cols-3 items-start">
+          {/* Brand / Farm Info */}
+          <div className="space-y-4 text-center md:text-left">
+            <Image
+              src="/logo.png"
+              alt="Versatile Growers Logo"
+              width={150}
+              height={150}
+              className="mx-auto md:mx-0"
+            />
+            <p className="text-sm text-white/80 leading-relaxed">
+              Quality farm-fresh produce grown with care in Kajiado County, Kenya.
+            </p>
+            <p className="text-sm text-white/80">
+              <span className="font-semibold text-white">Owner:</span> Nereah Joan
+            </p>
           </div>
 
-          {/* Divider */}
-          <div className="border-t border-white/20 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 px-12">
-              <p className="text-white text-sm">
-                © {currentYear} Versatile growers. All rights reserved.
-              </p>
-              <p className="text-white text-sm">
-                Powered by{" "}
+          {/* Quick Links */}
+          <div className="text-center md:text-left">
+            <h4 className="font-semibold mb-4 tracking-wide">Quick Links</h4>
+            <nav className="space-y-3">
+              {["about", "products", "milestones", "contact"].map((link) => (
                 <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary-foreground hover:underline font-medium"
+                  key={link}
+                  href={`#${link}`}
+                  className="block text-sm text-white/70 hover:text-orange-400 transition-colors"
                 >
-                  Zuri Tech 
+                  {link.charAt(0).toUpperCase() + link.slice(1)}
                 </a>
+              ))}
+            </nav>
+          </div>
+
+          {/* Contact Info */}
+          <div className="text-center md:text-left">
+            <h4 className="font-semibold mb-4 tracking-wide">Contact Us</h4>
+            <div className="space-y-4">
+              <a
+                href={`tel:${PHONE_NUMBER}`}
+                className="flex items-center justify-center md:justify-start gap-3 text-sm text-white/70 hover:text-orange-400 transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                {PHONE_NUMBER}
+              </a>
+
+              <a
+                href={`https://wa.me/${PHONE_NUMBER.replace("+", "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center md:justify-start gap-3 text-sm text-white/70 hover:text-orange-400 transition-colors"
+              >
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp
+              </a>
+
+              <p className="flex items-center justify-center md:justify-start gap-3 text-sm text-white/70">
+                <MapPin className="w-4 h-4" />
+                Kajiado County, Kenya
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="mt-14 border-t border-white/15 pt-8">
+          <div className="flex flex-col md:flex-row gap-4 justify-between items-center text-sm text-white/70">
+            <p>© {currentYear} Versatile Growers. All rights reserved.</p>
+
+            <p>
+              Powered by{" "}
+              <a
+                href="#"
+                className="text-white hover:text-orange-400 font-medium transition-colors"
+              >
+                Zuri Tech
+              </a>
+            </p>
           </div>
         </div>
       </div>
