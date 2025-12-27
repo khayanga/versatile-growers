@@ -78,7 +78,7 @@ export default function Contact() {
   return (
   <section
     id="contact"
-    className="relative py-24 px-6 bg-linear-to-b from-green-50 via-white to-orange-50"
+    className="relative py-24 md:py-32 px-6 bg-linear-to-b from-green-50 via-white to-orange-50"
   >
     <div className="mx-auto max-w-6xl">
       <div className="space-y-14 animate-fade-in-up">

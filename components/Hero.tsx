@@ -49,7 +49,7 @@ const Hero = () => {
       <div className="absolute top-20 left-10 w-72 h-72 bg-green-500/20 rounded-full blur-3xl z-0" />
       <div className="absolute bottom-20 right-10 w-72 h-72 bg-orange-500/20 rounded-full blur-3xl z-0" />
 
-      <div className="relative z-10 container px-4 py-24 text-center">
+      <div className="relative z-10 container mx-auto px-4 py-24 text-center">
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Badge */}
           <div className="animate-fade-up">
@@ -59,20 +59,14 @@ const Hero = () => {
           </div>
 
           {/* Headline */}
-          <h1
-            className="animate-fade-up animation-delay-100 
-               text-4xl md:text-5xl lg:text-6xl 
-               font-display font-bold 
-               leading-tight text-balance 
-               bg-linear-to-br from-teal-500 via-green-500 to-orange-500
-               bg-clip-text text-transparent"
-          >
+          <h1 className="animate-fade-up animation-delay-100 text-4xl md:text-5xl lg:text-6xl font-display font-bold  leading-tight text-balance text-primary-foreground">
             Fresh Produce, Modern Farming, Trusted Consultancy
+            
           </h1>
 
           {/* Subtext */}
           <p className="animate-fade-up animation-delay-200 text-lg md:text-xl text-primary-foreground/90 max-w-2xl mx-auto">
-            Quality vegetables and crops grown with care in Kitengela, Kenya
+            Quality vegetables and crops grown with care in Kitengela, Kenya 
             supporting sustainable farming and healthy communities.
           </p>
 
@@ -100,7 +94,7 @@ const Hero = () => {
                 rel="noopener noreferrer"
               >
                 <MessageCircle className="mr-2" />
-                WhatsApp
+                WhatsApp 
               </a>
             </Button>
           </div>
@@ -125,7 +119,7 @@ const Hero = () => {
 
           {/* Owner */}
           <p className="animate-fade-up animation-delay-500 text-primary-foreground/80 text-sm pt-6">
-            Founder: <strong>Nereah Joan</strong>
+            Owned & operated by <strong>Nereah Joan</strong>
           </p>
         </div>
       </div>

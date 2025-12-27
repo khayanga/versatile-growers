@@ -27,7 +27,7 @@ export default function Products() {
   return (
     <section
       id="products"
-      className="relative py-24 px-6 bg-linear-to-b from-white to-green-50 overflow-hidden"
+      className=" relative py-24 px-6 bg-linear-to-b from-white to-green-50 overflow-hidden"
     >
       {/* Decorative blur */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-green-500/20 rounded-full blur-3xl" />
@@ -50,7 +50,7 @@ export default function Products() {
       </div>
 
       {/* Products Grid */}
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="relative   z-10 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {products.map((product) => (
           <div
             key={product.name}

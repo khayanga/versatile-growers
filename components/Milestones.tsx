@@ -73,14 +73,14 @@ const MilestonesSection = () => {
     >
       <SectionDecorator />
 
-      <div className="container px-4 relative z-10">
+      <div className="container mx-auto  px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block px-3 py-1 rounded-full bg-orange-500/10 text-orange-500 text-sm font-medium mb-6">
             What We Do
           </span>
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Opportunity Desk
+            Our Services
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Practical, sustainable, and impact-driven agricultural solutions

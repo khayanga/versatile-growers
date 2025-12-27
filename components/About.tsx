@@ -7,7 +7,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative py-24 px-6 bg-linear-to-b from-green-50 to-white overflow-hidden"
+      className="relative py-24 md:py-32 px-6 bg-linear-to-b from-green-50 to-white overflow-hidden"
     >
       {/* Decorative blur */}
       <div className="absolute top-20 right-10 w-72 h-72 bg-green-500/20 rounded-full blur-3xl" />
