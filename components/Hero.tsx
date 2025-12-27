@@ -59,14 +59,20 @@ const Hero = () => {
           </div>
 
           {/* Headline */}
-          <h1 className="animate-fade-up animation-delay-100 text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary-foreground leading-tight text-balance">
+          <h1
+            className="animate-fade-up animation-delay-100 
+               text-4xl md:text-5xl lg:text-6xl 
+               font-display font-bold 
+               leading-tight text-balance 
+               bg-linear-to-br from-teal-500 via-green-500 to-orange-500
+               bg-clip-text text-transparent"
+          >
             Fresh Produce, Modern Farming, Trusted Consultancy
-            <span className="block text-orange-400">Direct from Our Farm</span>
           </h1>
 
           {/* Subtext */}
           <p className="animate-fade-up animation-delay-200 text-lg md:text-xl text-primary-foreground/90 max-w-2xl mx-auto">
-            Quality vegetables and crops grown with care in Kitengela, Kenya 
+            Quality vegetables and crops grown with care in Kitengela, Kenya
             supporting sustainable farming and healthy communities.
           </p>
 
@@ -94,7 +100,7 @@ const Hero = () => {
                 rel="noopener noreferrer"
               >
                 <MessageCircle className="mr-2" />
-                WhatsApp 
+                WhatsApp
               </a>
             </Button>
           </div>
