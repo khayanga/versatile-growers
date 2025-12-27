@@ -29,7 +29,7 @@ const Footer = () => {
               Quality farm-fresh produce grown with care in Kajiado County, Kenya.
             </p>
             <p className="text-sm text-white/80">
-              <span className="font-semibold text-white">Owner:</span> Nereah Joan
+              <span className="font-semibold text-white">Founder:</span> Nereah Joan
             </p>
           </div>
 
