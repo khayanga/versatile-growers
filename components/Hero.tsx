@@ -54,7 +54,7 @@ const Hero = () => {
           {/* Badge */}
           <div className="animate-fade-up">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md text-primary-foreground text-sm font-medium border border-white/20">
-              🌱 Versatile Growers · Est. 2023
+              🌱 Versatile Growers · Est. 2022
             </span>
           </div>
 
