@@ -62,7 +62,7 @@ export default function About() {
                 >
                   <BadgeCheck className="w-5 h-5 mr-2" />
                   <span className="font-semibold">
-                    Partner of Future Farms Initiative
+                    Partner of the Future Farms Initiative
                   </span>
                 </Button>
               </a>
