@@ -11,7 +11,7 @@ const WHATSAPP_MESSAGE = encodeURIComponent(
 
 const stats = [
   {
-    number: "4+",
+    number: "3 years+",
     label: "In Production",
     icon: TrendingUp,
   },
