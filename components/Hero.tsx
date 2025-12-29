@@ -12,7 +12,7 @@ const WHATSAPP_MESSAGE = encodeURIComponent(
 const stats = [
   {
     number: "4+",
-    label: "Years Experience",
+    label: "In Production",
     icon: TrendingUp,
   },
   {
@@ -22,7 +22,7 @@ const stats = [
   },
   {
     number: "3+",
-    label: "Markets Reached",
+    label: "Major Markets",
     icon: Users,
   },
 ];
