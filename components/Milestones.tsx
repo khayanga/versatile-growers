@@ -86,7 +86,6 @@ const MilestonesSection = () => {
             Practical, sustainable, and impact-driven agricultural solutions
             designed to support farmers, partners, and investors.
           </p>
-          
         </div>
 
         {/* Services */}
@@ -147,8 +146,8 @@ const MilestonesSection = () => {
 
               <p className="text-white/90 max-w-xl mb-8">
                 Interested in partnering with us, investing in sustainable
-                agriculture, or exploring collaboration opportunities? Leave
-                your email and we’ll reach out.
+                agriculture, or exploring collaboration opportunities? Book a
+                consultation
               </p>
 
               <form

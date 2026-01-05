@@ -5,31 +5,31 @@ const PHONE_NUMBER = "+254769768560";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  // url="https://docs.google.com/forms/d/e/1FAIpQLSdXsJP_XXFs4CL8pqlFQD12F96a_YbIJMvqpwKDY8ta1L7j9w/viewform?usp=header"
-
   return (
-    <footer className="relative bg-linear-to-br from-green-700 via-green-800 to-green-900 text-white">
-      {/* Top glow */}
+    <footer className="relative bg-linear-to-br from-green-400 via-green-700 to-green-900 text-white">
       <div className="absolute inset-x-0 -top-24 h-24 bg-linear-to-t from-green-700/40 to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 py-16">
-        {/* Main Footer Content */}
         <div className="grid gap-12 md:grid-cols-3 items-start">
           {/* Brand / Farm Info */}
           <div className="space-y-4 text-center md:text-left">
-            <Image
-              src="/logo.png"
-              alt="Versatile Growers Logo"
-              width={150}
-              height={150}
-              className="mx-auto md:mx-0"
-            />
+            <div className="inline-block rounded-xl bg-white/10 backdrop-blur-md p-3">
+              <Image
+                src="/logo.png"
+                alt="Versatile Growers Logo"
+                width={150}
+                height={150}
+                className="mx-auto md:mx-0"
+              />
+            </div>
+
             <p className="text-sm text-white/80 leading-relaxed">
-              Quality farm-fresh produce grown with care in Kajiado County, Kenya.
+              Quality farm-fresh produce grown with care in Kajiado County,
+              Kenya.
             </p>
             <p className="text-sm text-white/80">
-              <span className="font-semibold text-white">Founder:</span> Nereah Joan
+              <span className="font-semibold text-white">Founder:</span> Nereah
+              Joan
             </p>
           </div>
 

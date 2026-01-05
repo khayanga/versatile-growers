@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from "react";
-import { Menu, X, Leaf } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -20,7 +21,6 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      
       const sections = navLinks.map((link) => link.href.slice(1));
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
@@ -41,9 +41,7 @@ const Navbar = () => {
   const handleNavClick = (href: string) => {
     setIsOpen(false);
     const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    if (element) element.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -56,29 +54,43 @@ const Navbar = () => {
     >
       <div className="container px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+
+          {/* LOGO */}
           <a
             href="#home"
             onClick={(e) => {
               e.preventDefault();
               handleNavClick("#home");
             }}
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-3 group"
           >
-            <div className={`p-2 rounded-full transition-colors ${
-              isScrolled ? "bg-primary" : "bg-primary-foreground/20 backdrop-blur-sm"
-            }`}>
-              <Leaf className={`w-5 h-5 ${
-                isScrolled ? "text-primary-foreground" : "text-primary-foreground"
-              }`} />
+            {/* Logo Badge */}
+            <div
+              className={`relative rounded-full p-2 transition-all duration-300 ${
+                isScrolled
+                  ? "bg-white shadow-sm"
+                  : "bg-white/20 backdrop-blur-md"
+              }`}
+            >
+              <Image
+                src="/logo.png"
+                alt="Versatile Growers Logo"
+                width={40}
+                height={0}
+                className="object-contain transition-transform duration-300 group-hover:scale-105"
+                priority
+              />
             </div>
-            <span className={`font-display font-bold text-lg transition-colors ${
-              isScrolled ? "text-foreground" : "text-primary-foreground"
-            }`}>
-              Versatile growers
+
+            {/* Brand Name */}
+            <span
+              className={`font-display font-bold text-lg tracking-wide transition-colors ${
+                isScrolled ? "text-foreground" : "text-primary-foreground"
+              }`}
+            >
+              Versatile Growers
             </span>
           </a>
-          
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">
@@ -124,9 +136,11 @@ const Navbar = () => {
             isOpen ? "max-h-80 pb-4" : "max-h-0"
           }`}
         >
-          <div className={`flex flex-col gap-1 rounded-2xl p-2 ${
-            isScrolled ? "bg-card" : "bg-foreground/20 backdrop-blur-md"
-          }`}>
+          <div
+            className={`flex flex-col gap-1 rounded-2xl p-2 ${
+              isScrolled ? "bg-card" : "bg-foreground/20 backdrop-blur-md"
+            }`}
+          >
             {navLinks.map((link) => (
               <a
                 key={link.name}

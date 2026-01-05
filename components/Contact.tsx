@@ -142,7 +142,7 @@ export default function Contact() {
                 type="submit"
                 size="lg"
                 disabled={loading}
-                className="w-full bg-linear-to-r from-green-600 to-orange-500 hover:opacity-90 transition-all"
+                className="w-full  "
               >
                 {loading ? (
                   <>

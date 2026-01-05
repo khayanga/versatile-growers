@@ -1,8 +1,7 @@
 "use client";
-
 import { Phone, MessageCircle, Sprout, TrendingUp, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 const PHONE_NUMBER = "+254769768560";
 const WHATSAPP_MESSAGE = encodeURIComponent(
@@ -11,18 +10,18 @@ const WHATSAPP_MESSAGE = encodeURIComponent(
 
 const stats = [
   {
-    number: "3+ years",
-    label: "In Production",
+    number: "4+",
+    label: "Years Experience",
     icon: TrendingUp,
   },
   {
-    number: "20+",
+    number: "120+",
     label: "Tonnes Harvested",
     icon: Sprout,
   },
   {
     number: "3+",
-    label: "Major Markets",
+    label: "Markets Reached",
     icon: Users,
   },
 ];
@@ -81,8 +80,6 @@ const Hero = () => {
 
             <Button
               size="lg"
-              variant="outline"
-              className="bg-white/10 text-white border-white/30 hover:bg-white/20"
               asChild
             >
               <a
