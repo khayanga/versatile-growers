@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
-import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
 
 interface FormData {
@@ -16,8 +15,8 @@ interface FormData {
 
 export default function Contact() {
   const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
 
-  const [loading, setLoading] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -45,29 +44,33 @@ export default function Contact() {
     setLoading(true);
 
     try {
-      await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbzDDx01AYvCSP51vREZ6PS5Hjz_kZyfEDyUs7wmM08EYYEGlwv_4gwPORNVga0gsGE/exec",
         {
-          user_name: formData.name,
-          user_email: formData.email,
-          message: formData.message,
-          reply_to: formData.email,
-        },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
+          method: "POST",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }),
+        }
       );
+
+      if (!response.ok) throw new Error("Request failed");
 
       toast({
         title: "Message sent ✨",
-        description: "Thanks for reaching out! I’ll get back to you soon.",
+        description: "Thanks for reaching out! We’ll get back to you soon.",
       });
 
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      console.error("EmailJS error:", error);
+    } catch (err) {
       toast({
-        title: "Failed to send message",
-        description: "Please try again or reach me directly via email.",
+        title: "Failed to send",
+        description: "Please try again later.",
         variant: "destructive",
       });
     } finally {
@@ -76,101 +79,95 @@ export default function Contact() {
   };
 
   return (
-  <section
-    id="contact"
-    className="relative py-24 md:py-32 px-6 bg-linear-to-b from-green-50 via-white to-orange-50"
-  >
-    <div className="mx-auto max-w-6xl">
-      <div className="space-y-14 animate-fade-in-up">
-        {/* Header */}
-        <div className="space-y-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Get in Touch
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Have a question or want to place an order? We’d love to hear from you.
-          </p>
-          <div className="h-1 w-24 bg-linear-to-r from-green-500 to-orange-500 rounded-full mx-auto" />
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Form Card */}
-          <div className="bg-card/90 backdrop-blur border border-border rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium">
-                  Name
-                </label>
-                <Input
-                  id="name"
-                  placeholder="Your name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="focus-visible:ring-green-500"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium">
-                  Email
-                </label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="your.email@example.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="focus-visible:ring-green-500"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="message" className="text-sm font-medium">
-                  Message
-                </label>
-                <Textarea
-                  id="message"
-                  placeholder="What produce are you interested in?"
-                  rows={6}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="focus-visible:ring-green-500 resize-none"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                size="lg"
-                disabled={loading}
-                className="w-full  "
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    Send Message
-                    <Send className="ml-2 h-4 w-4" />
-                  </>
-                )}
-              </Button>
-            </form>
+    <section
+      id="contact"
+      className="relative py-24 md:py-32 px-6 bg-linear-to-b from-green-50 via-white to-orange-50"
+    >
+      <div className="mx-auto max-w-6xl">
+        <div className="space-y-14 animate-fade-in-up">
+          {/* Header */}
+          <div className="space-y-4 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+              Get in Touch
+            </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Have a question or want to place an order? We’d love to hear from
+              you.
+            </p>
+            <div className="h-1 w-24 bg-linear-to-r from-green-500 to-orange-500 rounded-full mx-auto" />
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-10">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-semibold">Ready to order?</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Reach out directly via email or phone, or send us a message using
-                the form. We respond fast.
-              </p>
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Form */}
+            <div className="bg-card/90 backdrop-blur border border-border rounded-2xl p-8 shadow-lg">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-medium">
+                    Name
+                  </label>
+                  <Input
+                    id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="email" className="text-sm font-medium">
+                    Email
+                  </label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium">
+                    Message
+                  </label>
+                  <Textarea
+                    id="message"
+                    rows={6}
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="What produce are you interested in?"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  disabled={loading}
+                  className="w-full"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message <Send className="ml-2 h-4 w-4" />
+                    </>
+                  )}
+                </Button>
+              </form>
             </div>
 
-            {/* Contact Cards */}
-            <div className="space-y-4">
+            {/* Contact Info */}
+            <div className="space-y-10">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-semibold">Ready to order?</h3>
+                <p className="text-muted-foreground">
+                  Reach out directly or send us a message. We respond fast.
+                </p>
+              </div>
+
               {[
                 {
                   icon: Mail,
@@ -193,14 +190,12 @@ export default function Contact() {
                   <a
                     key={i}
                     href={item.href}
-                    className="group flex items-center gap-4 p-5 rounded-xl border border-border bg-card/80 backdrop-blur hover:border-orange-500/50 hover:shadow-md transition-all duration-300"
+                    className="flex items-center gap-4 p-5 rounded-xl border bg-card"
                   >
                     <div className="flex h-11 w-11 items-center justify-center rounded-full bg-linear-to-br from-green-500 to-orange-500 text-white">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <span className="font-medium group-hover:text-orange-600 transition-colors">
-                      {item.text}
-                    </span>
+                    <span className="font-medium">{item.text}</span>
                   </a>
                 );
               })}
@@ -208,8 +203,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
-
+    </section>
+  );
 }
