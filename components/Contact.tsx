@@ -45,7 +45,7 @@ export default function Contact() {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbzDDx01AYvCSP51vREZ6PS5Hjz_kZyfEDyUs7wmM08EYYEGlwv_4gwPORNVga0gsGE/exec",
+        "https://script.google.com/macros/s/AKfycbxdSK-cPlMm-P2GPd507iSa1oenSLWSjHPZzCjcs11EM2EX-dYsDR6n2tDblrZxGebd/exec",
         {
           method: "POST",
           headers: {
