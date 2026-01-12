@@ -114,18 +114,8 @@ const Hero = () => {
             ))}
           </div>
 
-          {/* Owner */}
-          <p className="animate-fade-up animation-delay-500 text-primary-foreground/80 text-sm pt-6">
-            Founder:{" "}
-            <a
-              href="https://www.facebook.com/share/1CGZHVXGFu/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-semibold underline hover:text-primary-foreground"
-            >
-              Nereah Joan
-            </a>
-          </p>
+        
+         
 
         </div>
       </div>
