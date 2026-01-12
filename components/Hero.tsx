@@ -115,9 +115,7 @@ const Hero = () => {
           </div>
 
           {/* Owner */}
-          <p className="animate-fade-up animation-delay-500 text-primary-foreground/80 text-sm pt-6">
-            Founder: <strong>Nereah Joan</strong>
-          </p>
+          
         </div>
       </div>
     </section>
