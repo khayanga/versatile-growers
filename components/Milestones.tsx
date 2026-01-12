@@ -27,45 +27,8 @@ const services = [
 ];
 
 const MilestonesSection = () => {
-  const { toast } = useToast();
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const GOOGLE_FORM_ACTION =
-    "https://docs.google.com/forms/d/e/1FAIpQLScdMpzUOLm1Yk2DnFp-Vh3HiFSnDdRWf2qTFc6javMUY7eaUA/formResponse";
-
-  const EMAIL_ENTRY_ID = "entry.1273314803";
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      const formData = new FormData();
-      formData.append(EMAIL_ENTRY_ID, email);
-
-      await fetch(GOOGLE_FORM_ACTION, {
-        method: "POST",
-        body: formData,
-        mode: "no-cors",
-      });
-
-      toast({
-        title: "You're on the list 🎉",
-        description: "We'll reach out with updates and opportunities.",
-      });
-
-      setEmail("");
-    } catch {
-      toast({
-        title: "Submission failed",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+  
+  
   return (
     <section
       id="services"
@@ -150,25 +113,21 @@ const MilestonesSection = () => {
                 consultation
               </p>
 
-              <form
-                onSubmit={handleSubmit}
-                className="flex flex-col sm:flex-row gap-4 max-w-xl"
-              >
-                <Input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email address"
-                  className="flex-1  rounded-xl text-foreground bg-white focus:outline-none focus:ring-2 focus:ring-white"
-                />
-                <Button
-                  type="submit"
-                  className="px-6 py-3 rounded-xl bg-primary text-white font-medium hover:bg-primary/80 transition-colors"
-                >
-                  Join Mailing List
-                </Button>
-              </form>
+             <a
+  href="https://calendar.app.google/cPbN9xZefBK8atDn9"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button
+    type="button"
+    className="px-6 py-6 rounded-xl bg-primary text-white font-medium hover:bg-primary/80 transition-colors"
+  >
+    Book a Consultation
+  </Button>
+</a>
+
+
+           
             </div>
 
             {/* Decorative blur */}

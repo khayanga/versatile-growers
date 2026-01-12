@@ -4,7 +4,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
+import { Facebook, Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface FormData {
@@ -179,6 +179,7 @@ export default function Contact() {
                   text: "0769768560",
                   href: "tel:0769768560",
                 },
+                
                 {
                   icon: MapPin,
                   text: "Kitengela, Kajiado County",

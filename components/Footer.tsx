@@ -1,4 +1,4 @@
-import { Phone, MessageCircle, MapPin } from "lucide-react";
+import { Phone, MessageCircle, MapPin, Facebook } from "lucide-react";
 import Image from "next/image";
 
 const PHONE_NUMBER = "+254769768560";
@@ -13,23 +13,36 @@ const Footer = () => {
         <div className="grid gap-12 md:grid-cols-3 items-start">
           {/* Brand / Farm Info */}
           <div className="space-y-4 text-center md:text-left">
-            <div className="inline-block rounded-xl bg-white/10 backdrop-blur-md p-3">
-              <Image
-                src="/logo.png"
-                alt="Versatile Growers Logo"
-                width={150}
-                height={150}
-                className="mx-auto md:mx-0"
-              />
+            <div className="inline-block rounded-xl bg-white p-3">
+              <a
+                href="https://www.facebook.com/share/1CGZHVXGFu/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/logo.png"
+                  alt="Versatile Growers Logo"
+                  width={150}
+                  height={150}
+                  className="mx-auto md:mx-0 cursor-pointer"
+                />
+              </a>
             </div>
 
             <p className="text-sm text-white/80 leading-relaxed">
               Quality farm-fresh produce grown with care in Kajiado County,
               Kenya.
             </p>
-            <p className="text-sm text-white/80">
-              <span className="font-semibold text-white">Founder:</span> Nereah
-              Joan
+            <p className="animate-fade-up animation-delay-500 text-primary-foreground/80 text-sm pt-6">
+              Founder:{" "}
+              <a
+                href="https://www.facebook.com/share/1BUJCPiU6M/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold underline hover:text-primary-foreground"
+              >
+                Nereah Joan
+              </a>
             </p>
           </div>
 
@@ -37,7 +50,7 @@ const Footer = () => {
           <div className="text-center md:text-left">
             <h4 className="font-semibold mb-4 tracking-wide">Quick Links</h4>
             <nav className="space-y-3">
-              {["about", "products", "milestones", "contact"].map((link) => (
+              {["about", "products", "services", "contact"].map((link) => (
                 <a
                   key={link}
                   href={`#${link}`}
@@ -69,6 +82,15 @@ const Footer = () => {
               >
                 <MessageCircle className="w-4 h-4" />
                 WhatsApp
+              </a>
+               <a
+                href="https://www.facebook.com/share/1CGZHVXGFu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center md:justify-start gap-3 text-sm text-white/70 hover:text-orange-400 transition-colors"
+              >
+                <Facebook className="w-4 h-4" />
+                Facebook
               </a>
 
               <p className="flex items-center justify-center md:justify-start gap-3 text-sm text-white/70">

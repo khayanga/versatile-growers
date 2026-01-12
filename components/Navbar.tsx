@@ -56,41 +56,40 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
 
           {/* LOGO */}
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick("#home");
-            }}
-            className="flex items-center gap-3 group"
-          >
-            {/* Logo Badge */}
-            <div
-              className={`relative rounded-full p-2 transition-all duration-300 ${
-                isScrolled
-                  ? "bg-white shadow-sm"
-                  : "bg-white/20 backdrop-blur-md"
-              }`}
-            >
-              <Image
-                src="/logo.png"
-                alt="Versatile Growers Logo"
-                width={40}
-                height={0}
-                className="object-contain transition-transform duration-300 group-hover:scale-105"
-                priority
-              />
-            </div>
+         <a
+  href="https://www.facebook.com/share/1CGZHVXGFu/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-3 group"
+>
+  {/* Logo Badge */}
+  <div
+    className={`relative rounded-full p-2 transition-all duration-300 ${
+      isScrolled
+        ? "bg-white shadow-sm"
+        : "bg-white/20 backdrop-blur-md"
+    }`}
+  >
+    <Image
+      src="/logo.png"
+      alt="Versatile Growers Logo"
+      width={40}
+      height={40}
+      className="object-contain transition-transform duration-300 group-hover:scale-105"
+      priority
+    />
+  </div>
 
-            {/* Brand Name */}
-            <span
-              className={`font-display font-bold text-lg tracking-wide transition-colors ${
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              }`}
-            >
-              Versatile Growers
-            </span>
-          </a>
+  {/* Brand Name */}
+  <span
+    className={`font-display font-bold text-lg tracking-wide transition-colors ${
+      isScrolled ? "text-foreground" : "text-primary-foreground"
+    }`}
+  >
+    Versatile Growers
+  </span>
+</a>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1">

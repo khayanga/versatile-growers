@@ -11,7 +11,7 @@ const WHATSAPP_MESSAGE = encodeURIComponent(
 const stats = [
   {
     number: "4+",
-    label: "Years Experience",
+    label: "Years In Production",
     icon: TrendingUp,
   },
   {
@@ -20,8 +20,8 @@ const stats = [
     icon: Sprout,
   },
   {
-    number: "3+",
-    label: "Markets Reached",
+    number: "5+",
+    label: " Major Markets Reached",
     icon: Users,
   },
 ];
@@ -114,9 +114,10 @@ const Hero = () => {
             ))}
           </div>
 
-        
-         
-
+          {/* Owner */}
+          <p className="animate-fade-up animation-delay-500 text-primary-foreground/80 text-sm pt-6">
+            Founder: <strong>Nereah Joan</strong>
+          </p>
         </div>
       </div>
     </section>
